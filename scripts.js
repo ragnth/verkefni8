@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 const text = (() => {
   let items;
   let checkbox; //input með type checkbox
-  let item; // færsla á lista
   let texti; // texti sem á að skrá
   let eyda; // Eyða takki
   let form;
@@ -24,25 +23,20 @@ const text = (() => {
       checkbox[i].addEventListener('change', finish);
     }
 
-    // item = items.querySelector('.item');
-
     eyda = items.querySelectorAll('.item__button');
     for (let i = 0; i < eyda.length; i++) {    
       eyda[i].addEventListener('click', deleteItem);
     }
 
-    form = _form;
-    formtext = form.querySelector('.form__input');
-
     span = items.querySelectorAll('.item__text');
     for (let i = 0; i < span.length; i++) {
       span[i].addEventListener('click', edit);
     }
-    
   
-    _form.addEventListener('submit', formHandler);
+    form = _form;
+    formtext = form.querySelector('.form__input');
 
-    // TODO láta hluti í _items virka
+    _form.addEventListener('submit', formHandler);
   }
 
   function formHandler(e) {
@@ -55,7 +49,6 @@ const text = (() => {
     if (!texti.replace(/\s/g, '').length){
       console.log('þetta er tómur strengur, það má ekki');
     } else {
-      console.log('fór inn í else');
       add(texti);
     }  
   }
@@ -72,6 +65,7 @@ const text = (() => {
 
   // event handler fyrir það að breyta færslu
   function edit(e) {
+    e.preventDefault();
     const gildi = e.target.parentNode; //foreldri span sem er valið
     const barn = e.target.className; // nafn á classa á span sem er valið
     // setja nýjan texta í stað gamla --- á eftir að klára
@@ -80,13 +74,12 @@ const text = (() => {
 
   // event handler fyrir það að klára að breyta færslu
   function commit(e) {
+    e.preventDefault();
     //Náði ekki að gera
   }
 
   // fall sem sér um að bæta við nýju item
   function add(value) {
-    console.log('nú er value' + value);
-
     const li = document.createElement('li');
     li.setAttribute('class', 'item');
     
@@ -118,7 +111,7 @@ const text = (() => {
 
   // hjálparfall til að útbúa element
   function el(type, className, clickHandler) {
-
+    e.preventDefault();
   }
 
   return {

@@ -1,3 +1,18 @@
+# Nytsamlegar skiparnir git
+git clone https://github.com/ragnth/verkefni8.git
+
+cd <þín mappa>
+
+git status (hver er staðan á rep)
+
+git add . (punktur ef allt) // git add <skráarnafn>(nafn á skrá sem þú ætlar að breyta)
+
+git commit -m "kommentið þitt"
+
+git push -u origin master
+
+git pull (sækir það sem er nýtt á github)
+
 # Verkefni 8
 
 Forrita skal viðmót sem leyfir að bæta við, breyta, eyða og klára verkefni af lista.
